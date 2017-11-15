@@ -7,10 +7,10 @@ import static org.junit.Assert.assertFalse;
 public class NameValidationFailTest {
 
     @Test
-    public void ชื่อเป็นค่าว่าง() {
+    public void nameIsNull() {
         NameValidation validation = new NameValidation();
         boolean result = validation.isEmpty("");
-        assertFalse("ต้องไม่ผ่านนะ เพราะว่ามันมีค่าวไมว่าง !!", result);
+        assertFalse("Name is Empty !", result);
     }
 
 }
