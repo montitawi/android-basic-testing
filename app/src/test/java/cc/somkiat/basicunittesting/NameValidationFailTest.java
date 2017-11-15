@@ -13,4 +13,11 @@ public class NameValidationFailTest {
         assertFalse("Name is Empty !", result);
     }
 
+    @Test
+    public void nameLengthNotInRangeTwoToTwenty(){
+        NameValidation validation = new NameValidation();
+        boolean result = validation.isNameLengthBetweenTwoToTwenty("m");
+        assertFalse("Name is short !",result);
+    }
+
 }
