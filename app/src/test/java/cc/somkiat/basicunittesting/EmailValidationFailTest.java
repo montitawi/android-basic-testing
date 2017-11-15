@@ -36,5 +36,12 @@ public class EmailValidationFailTest {
         assertFalse("Email Domain Name Empty ! ", result);
     }
 
+    @Test
+    public void emailIsInCorrectPattern() {
+        EmailValidation validation = new EmailValidation();
+        boolean result = validation.isEmailCorrect("m+o\n-t=i]t[a@m-a=i{l.co,m");
+        assertFalse("Email is incorrect !", result);
+    }
+
 
 }
