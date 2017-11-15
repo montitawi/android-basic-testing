@@ -15,5 +15,12 @@ public class NameValidationSuccess {
         assertTrue("Name is NotEmpty !", result);
     }
 
+    @Test
+    public void nameLengthInRangeTwoToTwenty() {
+        NameValidation validation = new NameValidation();
+        boolean result = validation.isNameLengthBetweenTwoToTwenty("Montita");
+        assertTrue("Name is OK !", result);
+    }
+
 
 }
