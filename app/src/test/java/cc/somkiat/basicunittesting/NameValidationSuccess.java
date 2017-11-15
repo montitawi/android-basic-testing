@@ -11,22 +11,22 @@ public class NameValidationSuccess {
     @Test
     public void nameNotNull() {
         NameValidation validation = new NameValidation();
-        boolean result = validation.isEmpty("Montita");
-        assertTrue("Name is NotEmpty !", result);
+        ValidationResult result = validation.validateName("Montita");
+        assertTrue(result.getMessage(), result.isValidationValid());
     }
 
     @Test
     public void nameLengthInRangeTwoToTwenty() {
         NameValidation validation = new NameValidation();
-        boolean result = validation.isNameLengthBetweenTwoToTwenty("Montita");
-        assertTrue("Name is OK !", result);
+        ValidationResult result = validation.validateName("Montita");
+        assertTrue(result.getMessage(), result.isValidationValid());
     }
 
     @Test
     public void nameIsCorrectPattern() {
         NameValidation validation = new NameValidation();
-        boolean result = validation.isNameCollect("Montita Wichianchai");
-        assertTrue("Name is correct Pattern !", result);
+        ValidationResult result = validation.validateName("Montita Wichianchai");
+        assertTrue(result.getMessage(), result.isValidationValid());
     }
 
 
