@@ -8,7 +8,8 @@ class NameValidation {
 
         try {
             isEmpty(name);
-            isNameLengthBetweenTwoToTwenty(name);
+            isNameLengthMoreThanTwo(name);
+            isNameLengthLessThanTwenty(name);
             isNamePatternCorrect(name);
         } catch (ValidationException e) {
             return new ValidationResult(false, e.getMessage());
@@ -25,9 +26,15 @@ class NameValidation {
         }
     }
 
-    private void isNameLengthBetweenTwoToTwenty(String name) throws ValidationException {
-        if (name.length() <= 2 || name.length() >= 20) {
-            throw new ValidationException("Name is Short or Long");
+    private void isNameLengthMoreThanTwo(String name) throws ValidationException {
+        if (name.length() <= 2) {
+            throw new ValidationException("Name is Short !");
+        }
+    }
+
+    private void isNameLengthLessThanTwenty(String name) throws ValidationException {
+        if (name.length() >= 20) {
+            throw new ValidationException("Name is long !");
         }
     }
 

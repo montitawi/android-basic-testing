@@ -14,11 +14,19 @@ public class NameValidationFailTest {
     }
 
     @Test
-    public void nameLengthNotInRangeTwoToTwenty() {
+    public void nameLengthIsShort() {
         NameValidation validation = new NameValidation();
         ValidationResult result = validation.validateName("m");
         assertFalse(result.getMessage(), result.isValidationValid());
     }
+
+    @Test
+    public void nameLengthIsLong() {
+        NameValidation validation = new NameValidation();
+        ValidationResult result = validation.validateName("Montitawichianchai MontitaWichianchai");
+        assertFalse(result.getMessage(), result.isValidationValid());
+    }
+
 
     @Test
     public void nameIsInCorrectPattern() {
