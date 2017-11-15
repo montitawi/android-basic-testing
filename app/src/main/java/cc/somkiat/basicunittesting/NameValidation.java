@@ -1,5 +1,7 @@
 package cc.somkiat.basicunittesting;
 
+import java.util.regex.Pattern;
+
 class NameValidation {
 
     String[] nameErrors = new String[]{"Empty", "Null"};
@@ -8,17 +10,19 @@ class NameValidation {
         return 1;
     }
 
-    public boolean isEmpty(String name) {
-        if(name.isEmpty()){
-            return false;
-        }
-        return true;
+    boolean isEmpty(String name) {
+        return !name.isEmpty();
     }
 
-    public boolean isNull(String name) {
-        if(name.isEmpty()){
-            return false;
-        }
-        return true;
+    boolean isNameLengthBetweenTwoToTwenty(String name){
+        return (name.length() > 1 && name.length() <= 20);
     }
+
+    boolean isNameCollect(String name){
+        String namePattern = "[A-Za-z]+ ?[A-Za-z]+";
+        return Pattern.matches(namePattern,name);
+
+    }
+
+
 }
