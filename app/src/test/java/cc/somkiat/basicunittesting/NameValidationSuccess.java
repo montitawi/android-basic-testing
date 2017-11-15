@@ -22,5 +22,12 @@ public class NameValidationSuccess {
         assertTrue("Name is OK !", result);
     }
 
+    @Test
+    public void nameIsCorrectPattern() {
+        NameValidation validation = new NameValidation();
+        boolean result = validation.isNameCollect("Montita Wichianchai");
+        assertTrue("Name is correct Pattern !", result);
+    }
+
 
 }
