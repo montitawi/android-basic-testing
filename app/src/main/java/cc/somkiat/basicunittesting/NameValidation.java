@@ -4,25 +4,41 @@ import java.util.regex.Pattern;
 
 class NameValidation {
 
-    String[] nameErrors = new String[]{"Empty", "Null"};
+    ValidationResult validateName(String name) {
 
-    public int validate(String name) {
-        return 1;
+        try {
+            isEmpty(name);
+            isNameLengthBetweenTwoToTwenty(name);
+            isNamePatternCorrect(name);
+        } catch (ValidationException e) {
+            return new ValidationResult(false, e.getMessage());
+        }
+
+        return new ValidationResult(true, "Validate Success");
+
+
     }
 
-    boolean isEmpty(String name) {
-        return !name.isEmpty();
+    private void isEmpty(String name) throws ValidationException {
+        if (name.isEmpty()) {
+            throw new ValidationException("Name is Empty !");
+        }
     }
 
-    boolean isNameLengthBetweenTwoToTwenty(String name){
-        return (name.length() > 1 && name.length() <= 20);
+    private void isNameLengthBetweenTwoToTwenty(String name) throws ValidationException {
+        if (name.length() <= 2 || name.length() >= 20) {
+            throw new ValidationException("Name is Short or Long");
+        }
     }
 
-    boolean isNameCollect(String name){
+    private void isNamePatternCorrect(String name) throws ValidationException {
         String namePattern = "[A-Za-z]+ ?[A-Za-z]+";
-        return Pattern.matches(namePattern,name);
+        if (!Pattern.matches(namePattern, name)) {
+            throw new ValidationException("Name is incorrect !");
+        }
 
     }
+
 
 
 }
