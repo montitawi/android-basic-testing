@@ -14,5 +14,13 @@ public class EmailValidationFailTest {
         assertFalse("Email is Empty !", result);
     }
 
+    @Test
+    public void userNameIsNull() {
+        EmailValidation validation = new EmailValidation();
+        boolean result = validation.isEmailCorrect("@mail.com");
+        assertFalse("Email is Username Empty !", result);
+
+    }
+
 
 }
