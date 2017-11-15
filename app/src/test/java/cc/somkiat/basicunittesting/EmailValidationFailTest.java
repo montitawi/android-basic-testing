@@ -29,5 +29,12 @@ public class EmailValidationFailTest {
         assertFalse("Email is AtSign Empty !", result);
     }
 
+    @Test
+    public void domainNameIsNull() {
+        EmailValidation validation = new EmailValidation();
+        boolean result = validation.isEmailCorrect("montita");
+        assertFalse("Email Domain Name Empty ! ", result);
+    }
+
 
 }
