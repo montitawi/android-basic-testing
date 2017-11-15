@@ -14,10 +14,17 @@ public class NameValidationFailTest {
     }
 
     @Test
-    public void nameLengthNotInRangeTwoToTwenty(){
+    public void nameLengthNotInRangeTwoToTwenty() {
         NameValidation validation = new NameValidation();
         boolean result = validation.isNameLengthBetweenTwoToTwenty("m");
-        assertFalse("Name is short !",result);
+        assertFalse("Name is short !", result);
+    }
+
+    @Test
+    public void nameIsInCorrectPattern() {
+        NameValidation validation = new NameValidation();
+        boolean result = validation.isNameCollect("Mon ti ta");
+        assertFalse("Name is incorrect Pattern !", result);
     }
 
 }
